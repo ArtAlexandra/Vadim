@@ -11,12 +11,16 @@ const common_1 = require("@nestjs/common");
 const users_module_1 = require("./users/users.module");
 const users_model_1 = require("./users/users.model");
 const sequelize_1 = require("@nestjs/sequelize");
+const questions_controller_1 = require("./questions/questions.controller");
+const questions_module_1 = require("./questions/questions.module");
+const answers_controller_1 = require("./answers/answers.controller");
+const answers_module_1 = require("./answers/answers.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        controllers: [],
+        controllers: [questions_controller_1.QuestionsController, answers_controller_1.AnswersController],
         providers: [],
         imports: [
             sequelize_1.SequelizeModule.forRoot({
@@ -30,6 +34,8 @@ exports.AppModule = AppModule = __decorate([
                 autoLoadModels: true,
             }),
             users_module_1.UsersModule,
+            questions_module_1.QuestionsModule,
+            answers_module_1.AnswersModule,
         ],
     })
 ], AppModule);
