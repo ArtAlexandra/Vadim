@@ -32,6 +32,9 @@ let QuestionsController = class QuestionsController {
     changeQuestions(id, question) {
         return this.questionsService.changeQuestion(id, question);
     }
+    getQU(id) {
+        return this.questionsService.getQU(id);
+    }
 };
 exports.QuestionsController = QuestionsController;
 __decorate([
@@ -62,6 +65,13 @@ __decorate([
     __metadata("design:paramtypes", [Number, String]),
     __metadata("design:returntype", void 0)
 ], QuestionsController.prototype, "changeQuestions", null);
+__decorate([
+    (0, common_1.Get)('/question-user/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], QuestionsController.prototype, "getQU", null);
 exports.QuestionsController = QuestionsController = __decorate([
     (0, common_1.Controller)('questions'),
     __metadata("design:paramtypes", [questions_service_1.QuestionsService])

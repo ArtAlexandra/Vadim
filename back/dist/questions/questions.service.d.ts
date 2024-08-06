@@ -12,6 +12,9 @@ export declare class QuestionsService {
         };
     }): Promise<Questions>;
     findAll(): Promise<Questions[]>;
+    getQU(id: number): Promise<Questions[] | {
+        warningMessage: string;
+    }>;
     findOneQuestion(id: number): Promise<Questions | {
         warningMessage: string;
     }>;

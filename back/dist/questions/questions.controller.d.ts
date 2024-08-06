@@ -11,4 +11,7 @@ export declare class QuestionsController {
         warningMessage: string;
     }>;
     changeQuestions(id: number, question: string): Promise<string | import("./questions.model").Questions>;
+    getQU(id: number): Promise<import("./questions.model").Questions[] | {
+        warningMessage: string;
+    }>;
 }

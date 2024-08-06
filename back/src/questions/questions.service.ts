@@ -24,6 +24,16 @@ export class QuestionsService {
       findAll(): Promise<Questions[]> {
         return  this.questionsModel.findAll();
       }
+      async getQU(id:number):Promise<Questions[]|{warningMessage:string}>{
+        const q =   this.questionsModel.findAll({where:{id_u:id}})
+        
+        if((await q).length==0){
+            return{
+                warningMessage:"У этого пользователя пока нет вопросов"
+            }
+        }
+        return q
+      }
 
       async findOneQuestion(id:number):Promise<Questions|{warningMessage:string}>{
         const question = await this.questionsModel.findOne({where:{id:id}})

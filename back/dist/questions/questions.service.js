@@ -28,6 +28,15 @@ let QuestionsService = class QuestionsService {
     findAll() {
         return this.questionsModel.findAll();
     }
+    async getQU(id) {
+        const q = this.questionsModel.findAll({ where: { id_u: id } });
+        if ((await q).length == 0) {
+            return {
+                warningMessage: "У этого пользователя пока нет вопросов"
+            };
+        }
+        return q;
+    }
     async findOneQuestion(id) {
         const question = await this.questionsModel.findOne({ where: { id: id } });
         return question;

@@ -28,5 +28,9 @@ export class QuestionsController {
         return this.questionsService.changeQuestion(id, question)
     }
 
+    @Get('/question-user/:id')
+    getQU(@Param('id') id:number){
+        return this.questionsService.getQU(id)
+    }
 
 }
